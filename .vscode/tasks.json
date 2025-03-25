@@ -1,0 +1,88 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "make",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "clean"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "json",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "json"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "erase",
+            "type": "shell",
+            "command": "openocd",
+            "args": [
+                "-f",
+                "OpenOCDConfig/download.cfg",
+                "-c",
+                "init",
+                "-c",
+                "reset halt",
+                "-c",
+                "flash erase_address 0x08000000 0x00020000",
+                "-c",
+                "reset",
+                "-c",
+                "exit"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "erase-all",
+            "type": "shell",
+            "command": "openocd",
+            "args": [
+                "-f",
+                "OpenOCDConfig/download.cfg",
+                "-c",
+                "init",
+                "-c",
+                "reset halt",
+                "-c",
+                "flash erase_sector 0 0 last",
+                "-c",
+                "reset",
+                "-c",
+                "exit"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "download",
+            "type": "shell",
+            "command": "openocd",
+            "args": [
+                "-f",
+                "OpenOCDConfig/download.cfg",
+                "-c",
+                "program build/mult_mini_box.hex verify reset",
+                "-c",
+                "reset run",
+                "-c",
+                "exit"
+            ],
+            "group": "build"
+        }
+    ]
+}

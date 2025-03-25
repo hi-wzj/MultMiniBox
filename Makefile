@@ -13,7 +13,7 @@
 ######################################
 # target
 ######################################
-TARGET = g474vet6
+TARGET = mult_mini_box
 
 
 ######################################
@@ -66,7 +66,7 @@ ASMM_SOURCES =
 #######################################
 # binaries
 #######################################
-PREFIX = /opt/stm32_tools/arm-gnu-toolchain-14.2.rel1-x86_64-arm-none-eabi/bin/arm-none-eabi-
+PREFIX = E:/DevlopTools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/arm-none-eabi-
 # The gcc compiler bin path can be either defined in make command via GCC_PATH variable (> make GCC_PATH=xxx)
 # either it can be added to the PATH environment variable.
 ifdef GCC_PATH
@@ -197,7 +197,7 @@ clean:
 #######################################
 # openocd
 #######################################
-OPENOCD_CFG=Config/download.cfg
+OPENOCD_CFG=OpenOCDConfig/download.cfg
 
 download:
 	openocd -f ${OPENOCD_CFG} -c init -c "reset halt; wait_halt; flash write_image erase build/${TARGET}.bin 0x8000000" -c reset -c shutdown

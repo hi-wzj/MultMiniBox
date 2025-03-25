@@ -7,17 +7,17 @@
         {
             "name": "Cortex Debug",
             "cwd": "${workspaceFolder}",
-            "executable": "./build/g474vet6.elf",
+            "executable": "./build/mult_mini_box.elf",
             "request": "launch",
             "type": "cortex-debug",
             "runToEntryPoint": "main",
             "interface": "swd",
             "servertype": "openocd",
             "device": "",
-            "armToolchainPath": "/opt/stm32_tools/arm-gnu-toolchain-14.2.rel1-x86_64-arm-none-eabi/bin/",
+            "armToolchainPath": "E:/DevlopTools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin",
             "showDevDebugOutput": "none",
             "configFiles": [
-                "./Config/download.cfg",
+                "./OpenOCDConfig/download.cfg",
             ]
         }
     ]
